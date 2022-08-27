@@ -33,7 +33,7 @@ public class AccountService {
 		
 		Customer customer = customerService.getCustomerById(accountRequest.getCustomerId());
 		
-		if(customer.getId() == null || customer.getId()=="")
+		if(customer.getId() == null || customer.getId().trim().equals(""))
 			return new AccountDto();
 		
 		Account account = new Account();
