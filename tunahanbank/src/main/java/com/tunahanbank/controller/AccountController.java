@@ -34,7 +34,7 @@ public class AccountController {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<AccountDto> getAccountById(@PathVariable String id){
+	public ResponseEntity<AccountDto> getAccountById(@PathVariable Long id){
 		return ResponseEntity.ok(accountService.getAccountDtoById(id));
 	}
 	
@@ -44,12 +44,12 @@ public class AccountController {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<AccountDto> updateAccount(@PathVariable String id , @RequestBody UpdateAccountRequest request){
+	public ResponseEntity<AccountDto> updateAccount(@PathVariable Long id , @RequestBody UpdateAccountRequest request){
 		return ResponseEntity.ok(accountService.updateAccount(id, request));
 	}
 	
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Void> deleteAccount(@PathVariable String id){
+	public ResponseEntity<Void> deleteAccount(@PathVariable Long id){
 		
 		accountService.deleteAccount(id);
 		
@@ -57,12 +57,12 @@ public class AccountController {
 	}
 	
 	@PutMapping("/withdraw/{id}/{amount}")
-	public ResponseEntity<AccountDto> withdrawMoney(@PathVariable String id , @PathVariable double amount){
+	public ResponseEntity<AccountDto> withdrawMoney(@PathVariable Long id , @PathVariable double amount){
 		return ResponseEntity.ok(accountService.withDrawMoney(id, amount));
 	}
 	
 	@PutMapping("/add/{id}/{amount}")
-	public ResponseEntity<AccountDto> addMoney(@PathVariable String id , @PathVariable double amount){
+	public ResponseEntity<AccountDto> addMoney(@PathVariable Long id , @PathVariable double amount){
 		return ResponseEntity.ok(accountService.addMoney(id, amount));
 	}
 } 

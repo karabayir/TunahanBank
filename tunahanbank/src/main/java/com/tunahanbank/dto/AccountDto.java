@@ -10,9 +10,9 @@ import lombok.Setter;
 @Setter
 public class AccountDto {
 
-    private String id;
+    private Long id;
 	
-	private String customerId;
+	private Long customerId;
 	private double balance;
 	private Currency currency;
 }

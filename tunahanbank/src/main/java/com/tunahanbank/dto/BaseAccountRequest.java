@@ -11,7 +11,7 @@ import lombok.Setter;
 public class BaseAccountRequest {
 	
 	
-	private String customerId;
+	private Long customerId;
 	private double balance;
 	private Currency currency;
 	private City city;

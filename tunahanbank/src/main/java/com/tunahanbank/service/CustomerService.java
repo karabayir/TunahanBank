@@ -34,7 +34,7 @@ public class CustomerService {
 		customer.setName(customerRequest.getName());
 		customer.setDateOfBirth(customerRequest.getDateOfBirth());
 		customer.setCity(City.valueOf(customerRequest.getCity().name()));
-		customer.setAddress(customerRequest.getAddress());
+		//customer.setAddress(customerRequest.getAddress());
 		
 		customerRepository.save(customer);
 		
@@ -65,7 +65,7 @@ public class CustomerService {
 
 
 
-	public CustomerDto getCustomerDtoById(String id) {
+	public CustomerDto getCustomerDtoById(Long id) {
 		
 		Optional<Customer> customerOptional = customerRepository.findById(id);
 		CustomerDto result =customerOptional.map(customer -> customerDtoConverter.convert(customer))
@@ -77,21 +77,21 @@ public class CustomerService {
 
 
 
-	public void deleteCustomerById(String id) {
+	public void deleteCustomerById(Long id) {
 		
 		customerRepository.deleteById(id);
 	}
 
 
 
-	public CustomerDto updateCustomerById(String id ,UpdateCustomerRequest customerRequest) {
+	public CustomerDto updateCustomerById(Long id ,UpdateCustomerRequest customerRequest) {
 		
 		Optional<Customer> customerOption = customerRepository.findById(id);
 		customerOption.ifPresent(customer -> { 
 		customer.setName(customerRequest.getName());
 		customer.setDateOfBirth(customerRequest.getDateOfBirth());
 		customer.setCity(City.valueOf(customerRequest.getCity().name()));
-		customer.setAddress(customerRequest.getAddress());
+		//customer.setAddress(customerRequest.getAddress());
 		customerRepository.save(customer);
 		});
 		
@@ -101,7 +101,7 @@ public class CustomerService {
 		return result;
 	}
 	
-	protected Customer getCustomerById(String id) {
+	protected Customer getCustomerById(Long id) {
 		
 		Customer result = customerRepository.findById(id).orElse(new Customer());
 		

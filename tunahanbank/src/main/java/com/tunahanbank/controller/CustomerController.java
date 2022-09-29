@@ -36,7 +36,7 @@ public class CustomerController {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<CustomerDto> getCustumerDtoById(@PathVariable String id){
+	public ResponseEntity<CustomerDto> getCustumerDtoById(@PathVariable Long id){
 		return ResponseEntity.ok(customerService.getCustomerDtoById(id));
 	}
 	
@@ -46,13 +46,13 @@ public class CustomerController {
 	}
 	
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Void> deleteCustomerById(@PathVariable String id){
+	public ResponseEntity<Void> deleteCustomerById(@PathVariable Long id){
 		customerService.deleteCustomerById(id);
 		return ResponseEntity.ok().build(); // ok() içinde parametre yok ise .build() eklenir.
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<CustomerDto> updateCustomerById(@PathVariable String id ,
+	public ResponseEntity<CustomerDto> updateCustomerById(@PathVariable Long id ,
 			                                              @RequestBody UpdateCustomerRequest customerRequest ){
 		return ResponseEntity.ok(customerService.updateCustomerById(id , customerRequest));
 	}

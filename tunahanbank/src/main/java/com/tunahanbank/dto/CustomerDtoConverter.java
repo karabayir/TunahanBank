@@ -15,7 +15,7 @@ public class CustomerDtoConverter {
 		customerDto.setName(customer.getName());
 		customerDto.setDateOfBirth(customer.getDateOfBirth());
 		customerDto.setCity(CityDto.valueOf(customer.getCity().name()));
-		customerDto.setAddress(customer.getAddress());
+		//customerDto.setAddress(customer.getAddress());
 		
 		return customerDto;
 	}

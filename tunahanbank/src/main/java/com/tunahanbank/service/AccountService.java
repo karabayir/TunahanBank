@@ -33,7 +33,7 @@ public class AccountService {
 		
 		Customer customer = customerService.getCustomerById(accountRequest.getCustomerId());
 		
-		if(customer.getId() == null || customer.getId().trim().equals(""))
+		if(customer.getId() == null)
 			return new AccountDto();
 		
 		Account account = new Account();
@@ -51,11 +51,11 @@ public class AccountService {
 	    return result;
 	}
 	
-	public AccountDto updateAccount(String id , UpdateAccountRequest accountRequest) {
+	public AccountDto updateAccount(Long id , UpdateAccountRequest accountRequest) {
 		
         Customer customer = customerService.getCustomerById(accountRequest.getCustomerId());
 		
-		if(customer.getId() == null || customer.getId()=="")
+		if(customer.getId() == null || customer.getId()==null)
 			return new AccountDto();
 		
 		Optional<Account> accountOptional = accountRepository.findById(id);
@@ -85,7 +85,7 @@ public class AccountService {
 	    return accountDtoList;
 	}
 	
-	public AccountDto getAccountDtoById(String id) {
+	public AccountDto getAccountDtoById(Long id) {
 		
 		Account account = accountRepository.findById(id).orElse(new Account());
 		
@@ -94,11 +94,11 @@ public class AccountService {
 		return result;
 	}
 	
-	public void deleteAccount(String id) {
+	public void deleteAccount(Long id) {
 		accountRepository.deleteById(id);
 	}
 	
-	public AccountDto withDrawMoney(String id , double amount) {
+	public AccountDto withDrawMoney(Long id , double amount) {
 		
 		Optional<Account> accountOptional = accountRepository.findById(id);
 		
@@ -116,7 +116,7 @@ public class AccountService {
 		  return result;	
 	}
 	
-	public AccountDto addMoney(String id, double amount) {
+	public AccountDto addMoney(Long id, double amount) {
 		
 		Optional<Account> accountOptional = accountRepository.findById(id);
 		

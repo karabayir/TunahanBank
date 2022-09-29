@@ -10,7 +10,7 @@ import lombok.Setter;
 @Setter
 public class CreateAccountRequest extends BaseAccountRequest {
 	
-    private String id;
+    private Long id;
 	
 	
 

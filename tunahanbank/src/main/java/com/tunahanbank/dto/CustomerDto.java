@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CustomerDto {
 	
-	private String id;
+	private Long id;
 	private String name;
 	private int dateOfBirth;
 	private CityDto city;

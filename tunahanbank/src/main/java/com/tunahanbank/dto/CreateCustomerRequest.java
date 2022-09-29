@@ -5,7 +5,7 @@ import lombok.Getter;
 @Getter
 public class CreateCustomerRequest extends BaseCustomerRequest{
 	
-	private String id;
+	private Long id;
 
 
 }
